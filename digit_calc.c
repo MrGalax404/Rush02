@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   digit_calc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:05:41 by nmathys           #+#    #+#             */
-/*   Updated: 2026/07/11 15:22:36 by nmathys          ###   ########.fr       */
+/*   Updated: 2026/07/11 15:35:31 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	print_mag(t_number *tab, int len_left)
+void	print_mag(t_dict *tab, int len_left)
 {
 	char	mag[40];
 	int	i;
@@ -43,7 +43,7 @@ void	print_mag(t_number *tab, int len_left)
 	ft_putstr(find_in_dict(tab, mag));
 }
 
-void	process_tens(t_number *tab, char b, char c)
+void	process_tens(t_dict *tab, char b, char c)
 {
 	char str[3];
 	if (b == '0' && c == '0')
@@ -78,7 +78,7 @@ void	process_tens(t_number *tab, char b, char c)
 	}
 }
 
-void	process_digits(t_number *tab, char a, char b, char c)
+void	process_digits(t_dict *tab, char a, char b, char c)
 {
 	char str[2];
 
@@ -93,7 +93,7 @@ void	process_digits(t_number *tab, char a, char b, char c)
 	process_tens(tab, b, c);
 }
 
-void	parse_left_to_right(t_number *tab, char *str, int len)
+void	parse_left_to_right(t_dict *tab, char *str, int len)
 {
 	int	i;
 	int	m;
@@ -103,24 +103,24 @@ void	parse_left_to_right(t_number *tab, char *str, int len)
 	m = len % 3;
 	if (m == 1 && str[0] != '0')
 	{
-		temp[0] = str[0]
+		temp[0] = str[0];
 		temp[1] = '\0';
 		ft_putstr(find_in_dict(tab, str));
-		print_mag
+		print_mag;
 		i = i + 1;
 	}
 	else if (m == 2 && (str[0] != '0' || str[1] != '0'))
 	{
 		process_tens(tab, str[0], str[1]);
-		print_mag
+		print_mag;
 		i = i + 2;
 	}
 	while (i < len)
 	{
 		if (str[i] != '0' || str[i + 1] != '0' || str[i + 2] != '0')
 		{
-			process_digits(tab, src[i], src[i + 1], src[i + 2]);
-			print_mag
+			process_digits(tab, str[i], str[i + 1], str[i + 2]);
+			print_mag;
 		}
 		i = i + 3;
 	}
