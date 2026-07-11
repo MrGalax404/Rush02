@@ -42,6 +42,6 @@ int	ft_strlen(char *str)
 void print_space(int *is_first)
 {
 	if (*is_first == 0)
-		ft_putstr(" ")
+		ft_putstr(" ");
 	*is_first = 0;
 }
