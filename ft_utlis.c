@@ -6,7 +6,7 @@
 /*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 15:17:05 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/11 16:46:18 by nmathys          ###   ########.fr       */
+/*   Updated: 2026/07/11 17:02:21 by nmathys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int i;
 
