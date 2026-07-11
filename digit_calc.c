@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   digit_calc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:05:41 by nmathys           #+#    #+#             */
-/*   Updated: 2026/07/11 14:36:32 by nmathys          ###   ########.fr       */
+/*   Updated: 2026/07/11 14:46:22 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_struct.h"
+#include "dict.h"
 #include <unistd.h>
 
 void	ft_putstr(char *str)

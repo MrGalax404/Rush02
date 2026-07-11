@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "ft_struct.h"
+#include "dict.h"
 
 #define DICTIONARY "numbers.dict"
 
