@@ -62,6 +62,7 @@ char	*ft_split(char *str, int turn)
 	return res;
 }
 
+/*
 t_dict	*parse_dict(char *str)
 {
 	int			i;
@@ -100,6 +101,51 @@ t_dict	*parse_dict(char *str)
 		i++;
 	}
 	return (res);
+}*/
+
+void	parse_entry(char *str, int *i, t_dict *entry)
+{
+	while (str[*i] && str[*i] != '\n')
+	{
+		if (str[*i] > 32 && str[*i] < 126
+			&& str[*i] != ' ' && str[*i] != ':')
+		{
+			if (!entry->key)
+				entry->key = ft_split(&str[*i], 1);
+			else
+				entry->value = ft_split(&str[*i], 0);
+			if (entry->value)
+				*i += ft_strlen(entry->value);
+			else
+				*i += ft_strlen(entry->key);
+		}
+		else
+			(*i)++;
+	}
+}
+
+t_dict	*parse_dict(char *str)
+{
+	t_dict	*res;
+	int		i;
+	int		index;
+
+	res = malloc(sizeof(t_dict) * (count_lines(str) + 1));
+	if (!res)
+		return (NULL);
+	i = 0;
+	index = 0;
+	while (str[i])
+	{
+		res[index].key = NULL;
+		res[index].value = NULL;
+		parse_entry(str, &i, &res[index++]);
+		if (str[i] == '\n')
+			i++;
+	}
+	res[index].key = NULL;
+	res[index].value = NULL;
+	return (res);
 }
 
 int main(int argc, char **argv)
@@ -121,6 +167,7 @@ int main(int argc, char **argv)
 	t_dict *a = parse_dict(buffer);
 	int i = 0;
 	printf("Key : %s\nValue : %s", a[i].key, a[i].value);
+	
 	free(a);
 	// printf("%s \n",buffer);
 }
