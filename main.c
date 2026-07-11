@@ -8,9 +8,13 @@
 
 int	is_nbr_valid(char *str)
 {
-	int res = 0;
 	int i = 0;
-	
+	while (str[i])
+	{
+		if(!(str[i] >= '0' && str[i] <='9'))
+			return 1;
+	}
+	return 0;
 }
 
 int main(int argc, char **argv)
