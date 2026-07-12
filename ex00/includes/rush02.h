@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush02.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:43:00 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 18:23:16 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 19:18:32 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int		ft_strlen(char *str);
 void	ft_putstr(char *str);
 void	print_space(int *is_first);
 int		ft_check_for_max(char *nbr);
+int		ft_contains(char *str, char c);
 
 #endif
