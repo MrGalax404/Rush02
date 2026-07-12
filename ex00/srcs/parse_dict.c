@@ -6,7 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:13:15 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 17:13:55 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:19:22 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,36 +100,6 @@ void	parse_entry(char *str, int *i, t_dict *entry)
 			(*i)++;
 	}
 }
-
-/*
-t_dict	*parse_dict(char *str)
-{
-	t_dict	*res;
-	int		i;
-	int		index;
-
-	res = malloc(sizeof(t_dict) * (count_lines(str) + 1));
-	if (!res)
-		return (NULL);
-	i = 0;
-	index = 0;
-	while (str[i])
-	{
-		if (str[i] == '\n')
-			i++;
-		else
-		{
-			res[index].key = NULL;
-			res[index].value = NULL;
-			parse_entry(str, &i, &res[index++]);
-			if (res[index - 1].key == NULL || res[index - 1].value == NULL)
-				return (NULL);
-		}
-	}
-	res[index].key = NULL;
-	res[index].value = NULL;
-	return (res);
-}*/
 
 void	parse_entry(char *str, int *i, t_dict *entry)
 {
