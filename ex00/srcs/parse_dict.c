@@ -6,7 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:13:15 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 18:11:33 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 19:25:52 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_split(char *str, int turn)
 	size = 0;
 	i = 0;
 	if (turn == 1)
-		while ((str[size] >= '0' && str[size] <= '9') || str[size] != ':')
+		while ((str[size] >= '0' && str[size] <= '9') && str[size] != ':')
 			size++;
 	else if (turn == 0)
 		while ((str[size] >= 32 && str[size] < 126) && str[size] != '\n')
@@ -57,6 +57,8 @@ char	*ft_split(char *str, int turn)
 		res[i] = str[i];
 		i++;
 	}
+	if (ft_contains(res, ':') == 1)
+		return (NULL);
 	res[i] = '\0';
 	return (res);
 }
@@ -75,13 +77,18 @@ void	parse_entry(char *str, int *i, t_dict *entry)
 {
 	while (str[*i] && str[*i] != '\n')
 	{
-		if (str[*i] > 32 && str[*i] < 126
+		if (str[*i] >= 32 && str[*i] <= 126
 			&& str[*i] != ' ' && str[*i] != ':')
 		{
 			if (!entry->key)
 				entry->key = ft_split(&str[*i], 1);
 			else
+			{
 				entry->value = ft_split(&str[*i], 0);
+				if (entry->value == NULL)
+					return ;
+				trim_ending_spaces(entry->value);
+			}
 			if (entry->value)
 				*i += ft_strlen(entry->value);
 			else
@@ -105,11 +112,16 @@ t_dict	*parse_dict(char *str)
 	index = 0;
 	while (str[i])
 	{
-		res[index].key = NULL;
-		res[index].value = NULL;
-		parse_entry(str, &i, &res[index++]);
 		if (str[i] == '\n')
 			i++;
+		else
+		{
+			res[index].key = NULL;
+			res[index].value = NULL;
+			parse_entry(str, &i, &res[index++]);
+			if (res[index - 1].key == NULL || res[index - 1].value == NULL)
+				return (NULL);
+		}
 	}
 	res[index].key = NULL;
 	res[index].value = NULL;
