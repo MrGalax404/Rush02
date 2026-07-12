@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 02:11:30 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 02:11:30 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 15:08:09 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ft_convert_loop(t_dict *tab, t_conv *conv)
         {
             if (!ft_print_group(tab, group, &conv->is_first))
                 return (0);
-            if (!ft_print_scale(tab, conv->len - conv->i, &conv->is_first))
+            if (!ft_print_scale(tab, conv->len - conv->i - conv->group_len, &conv->is_first))
                 return (0);
         }
         conv->i += conv->group_len;
