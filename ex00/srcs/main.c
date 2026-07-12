@@ -4,8 +4,6 @@
 #include <fcntl.h>
 #include "rush02.h"
 
-#define DICTIONARY "numbers.dict"
-
 int	is_nbr_valid(char *str)
 {
 	int i = 0;
@@ -19,19 +17,31 @@ int	is_nbr_valid(char *str)
 
 int main(int argc, char **argv)
 {
-	char *nbr;
+	char 	*nbr;
+	char	*content;
+	t_dict	*dict;
+
 	if(argc == 2)
 		nbr = argv[1];
 	else if(argc == 3)
-		;
+	{
+		nbr = argv[2];
+	}
 	else
 	{
 		write(2, "Dict Error\n", 11);
 		return 1;
 	}
-
-	char buffer[1000];
-	int file_descriptor = open(DICTIONARY, O_RDONLY);
-	read(file_descriptor, buffer, sizeof(buffer));
-	// printf("%s \n",buffer);
+	content = read_file("numbers.dict");
+	if (content == 0)
+	{
+		write(1, "Dict Error\n", 11);
+		return (1);
+	}
+	t_dict *dict = parse_dict(content);
+	if (!convert_number(dict, nbr))
+	{
+		write(1, "Dict Error\n", 11);
+		return (1);
+	}
 }

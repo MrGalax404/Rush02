@@ -42,7 +42,7 @@ char	*ft_append_dict(char *old, int old_size, char *buffer, int buffer_size)
 	return (new);
 }
 
-char	*ft_read_file(void)
+char	*ft_read_file(char *filename)
 {
 	char	*dict;
 	char	buffer[1024];
@@ -50,7 +50,7 @@ char	*ft_read_file(void)
 	int		bytes;
 	int		total;
 
-	file = open("numbers.dict", O_RDONLY, buffer);
+	file = open(filename, O_RDONLY, buffer);
 	if (file == -1)
 	{
 		write(1, "Dict Error\n", 11);
