@@ -6,7 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:13:07 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 18:27:00 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 19:19:22 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,18 @@ int	ft_check_for_max(char *nbr)
 	if (zeros > 36)
 		return (0);
 	return (1);
+}
+
+int	ft_contains(char *str, char c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
