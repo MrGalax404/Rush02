@@ -6,11 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 11:56:58 by nfurst            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/07/12 17:53:51 by nfurst           ###   ########.fr       */
-=======
-/*   Updated: 2026/07/12 17:27:36 by shkrasni         ###   ########.fr       */
->>>>>>> fc46fc579cfaf84ec464459ef43d8e633895bed0
+/*   Updated: 2026/07/12 18:03:31 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +93,5 @@ char	*ft_read_file(char *filename)
 		return (0);
 	}
 	close(file);
-<<<<<<< HEAD
-=======
-	if (bytes == -1)
-	{
-		free(dict);
-		return (0);
-	}
->>>>>>> fc46fc579cfaf84ec464459ef43d8e633895bed0
 	return (dict);
 }
