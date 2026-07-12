@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dict.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:13:07 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 14:16:28 by nmathys          ###   ########.fr       */
+/*   Updated: 2026/07/12 16:02:52 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
-
-char	*find_in_dict(t_dict *tab, char *key);
 
 int	ft_strcmp(char *s1, char *s2)
 {
