@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:40:27 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 18:23:56 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 18:42:03 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	content = ft_read_file(dict_file);
-	if (content == 0)
+	dict = parse_dict(content);
+	if (content == 0 || dict == NULL)
 	{
 		write(1, "Dict Error\n", 11);
 		return (1);
 	}
-	dict = parse_dict(content);
 	parse_left_to_right(dict, nbr, ft_strlen(nbr), &is_first);
 	if (ft_strcmp(nbr, "0\0") == 0)
 		ft_putstr(find_in_dict(dict, "0"));
