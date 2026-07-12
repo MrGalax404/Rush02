@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 02:11:30 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 15:08:09 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 16:18:35 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,32 @@ int ft_convert_loop(t_dict *tab, t_conv *conv)
     return (1);
 }
 
+int	ft_max_scale_valid(char *nbr)
+{
+	int len;
+	int group_len;
+	int zeros;
+
+	len = ft_strlen(nbr);
+	group_len = len % 3;
+	if (group_len == 0)
+		group_len = 3;
+	zeros = len - group_len;
+	if (zeros > 36)
+		return (0);
+	return (1);
+}
+
 int	ft_convert_number(t_dict *tab, char *nbr)
 {
 	t_conv	conv;
 
+	while (*nbr == '0')
+	{
+		nbr++;
+	}
+	if (!ft_max_scale_valid(nbr))
+		return (0);
     if (!ft_init_conv(&conv, nbr))
     {
         if (!ft_print_key(tab, "0", &conv.is_first))
