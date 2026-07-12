@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   digit_calc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
+/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:05:41 by nmathys           #+#    #+#             */
-/*   Updated: 2026/07/12 16:20:08 by nmathys          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:33:46 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	process_digits(t_dict *tab, char *str, int *is_first, int i)
 
 void	parse_left_to_right(t_dict *tab, char *str, int len, int *is_first)
 {
-	int	i;
+	int		i;
 	char	c[2];
 
 	i = len % 3;
