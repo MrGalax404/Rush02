@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dict.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:13:07 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 18:19:14 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 18:27:00 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ char	*find_in_dict(t_dict *tab, char *key)
 
 int	ft_check_for_max(char *nbr)
 {
-	int len;
-	int group_len;
-	int zeros;
+	int	len;
+	int	group_len;
+	int	zeros;
 
 	len = ft_strlen(nbr);
 	group_len = len % 3;
