@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 11:56:58 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 18:03:31 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 18:09:06 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
+
+char	*ft_append_dict(char *old, int old_size, char *buffer, int buffer_size)
+{
+	char	*new;
+	int		i;
+
+	new = malloc(sizeof(char) * (old_size + buffer_size + 1));
+	if (new == 0)
+	{
+		free(old);
+		return (0);
+	}
+	i = 0;
+	while (i < old_size)
+	{
+		new[i] = old[i];
+		i++;
+	}
+	i = 0;
+	while (i < buffer_size)
+	{
+		new[i + old_size] = buffer[i];
+		i++;
+	}
+	new[old_size + buffer_size] = '\0';
+	free(old);
+	return (new);
+}
 
 int	ft_init_read(char *filename, char **dict)
 {
@@ -39,7 +67,7 @@ int	ft_read_loop(int file, char **dict)
 	bytes = read(file, buffer, 1024);
 	while (bytes > 0)
 	{
-		dict = ft_append_dict(dict, total, buffer, bytes);
+		*dict = ft_append_dict(*dict, total, buffer, bytes);
 		if (dict == 0)
 			return (0);
 		total += bytes;
@@ -48,34 +76,6 @@ int	ft_read_loop(int file, char **dict)
 	if (bytes == -1)
 		return (0);
 	return (1);
-}
-
-char	*ft_append_dict(char *old, int old_size, char *buffer, int buffer_size)
-{
-	char	*new;
-	int		i;
-
-	new = malloc(sizeof(char) * (old_size + buffer_size + 1));
-	if (new == 0)
-	{
-		free(old);
-		return (0);
-	}
-	i = 0;
-	while (i < old_size)
-	{
-		new[i] = old[i];
-		i++;
-	}
-	i = 0;
-	while (i < buffer_size)
-	{
-		new[i + old_size] = buffer[i];
-		i++;
-	}
-	new[old_size + buffer_size] = '\0';
-	free(old);
-	return (new);
 }
 
 char	*ft_read_file(char *filename)
