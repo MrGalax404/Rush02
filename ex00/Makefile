@@ -1,16 +1,14 @@
 NAME = rush02
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 INC = includes
 
 SRC = srcs/main.c \
 	srcs/parse_dict.c \
 	srcs/ft_read_file.c \
 	srcs/ft_utlis.c \
-	srcs/ft_print_digit.c \
-	srcs/ft_convert_nbr.c \
-	srcs/ft_convert_group.c \
+	srcs/digit_calc.c \
 	srcs/dict.c
 
 OBJ = $(SRC:.c=.o)
