@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_dict.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:13:15 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 12:51:10 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 13:06:09 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "../includes/dict.h"
-
-int	ft_strlen(char *str);
+#include "rush02.h"
 
 #define DICTIONARY "../numbers.dict"
 

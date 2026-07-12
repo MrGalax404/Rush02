@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "dict.h"
+#include "rush02.h"
 
 #define DICTIONARY "numbers.dict"
 
