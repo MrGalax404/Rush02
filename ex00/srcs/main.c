@@ -32,14 +32,14 @@ int main(int argc, char **argv)
 		write(2, "Dict Error\n", 11);
 		return 1;
 	}
-	content = read_file("numbers.dict");
+	content = ft_read_file("numbers.dict");
 	if (content == 0)
 	{
 		write(1, "Dict Error\n", 11);
 		return (1);
 	}
-	t_dict *dict = parse_dict(content);
-	if (!convert_number(dict, nbr))
+	dict = parse_dict(content);
+	if (!ft_convert_number(dict, nbr))
 	{
 		write(1, "Dict Error\n", 11);
 		return (1);
