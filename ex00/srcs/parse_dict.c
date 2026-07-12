@@ -6,7 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:13:15 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 16:49:01 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:13:55 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void	parse_entry(char *str, int *i, t_dict *entry)
 	}
 }
 
+/*
 t_dict	*parse_dict(char *str)
 {
 	t_dict	*res;
@@ -124,6 +125,51 @@ t_dict	*parse_dict(char *str)
 			if (res[index - 1].key == NULL || res[index - 1].value == NULL)
 				return (NULL);
 		}
+	}
+	res[index].key = NULL;
+	res[index].value = NULL;
+	return (res);
+}*/
+
+void	parse_entry(char *str, int *i, t_dict *entry)
+{
+	while (str[*i] && str[*i] != '\n')
+	{
+		if (str[*i] > 32 && str[*i] < 126
+			&& str[*i] != ' ' && str[*i] != ':')
+		{
+			if (!entry->key)
+				entry->key = ft_split(&str[*i], 1);
+			else
+				entry->value = ft_split(&str[*i], 0);
+			if (entry->value)
+				*i += ft_strlen(entry->value);
+			else
+				*i += ft_strlen(entry->key);
+		}
+		else
+			(*i)++;
+	}
+}
+
+t_dict	*parse_dict(char *str)
+{
+	t_dict	*res;
+	int		i;
+	int		index;
+
+	res = malloc(sizeof(t_dict) * (count_lines(str) + 1));
+	if (!res)
+		return (NULL);
+	i = 0;
+	index = 0;
+	while (str[i])
+	{
+		res[index].key = NULL;
+		res[index].value = NULL;
+		parse_entry(str, &i, &res[index++]);
+		if (str[i] == '\n')
+			i++;
 	}
 	res[index].key = NULL;
 	res[index].value = NULL;
