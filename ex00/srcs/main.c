@@ -15,6 +15,7 @@ int	is_nbr_valid(char *str)
 	{
 		if(!(str[i] >= '0' && str[i] <='9'))
 			return 1;
+		i++;
 	}
 	return 0;
 }
@@ -40,6 +41,11 @@ int main(int argc, char **argv)
 		nbr = argv[2];
 	}
 	else
+	{
+		write(1, "Error\n", 6);
+		return (1);
+	}
+	if (is_nbr_valid(nbr) == 1)
 	{
 		write(1, "Error\n", 6);
 		return (1);
