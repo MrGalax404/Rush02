@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 02:27:44 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 02:27:44 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 15:05:37 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int ft_print_scale(t_dict *tab, int zeros, int *is_first)
 
     if (zeros == 0)
         return (1);
-    if (zeros == 36)
+    if (zeros % 3 != 0)
         return (0);
     key[0] = '1';
     i = 1;
