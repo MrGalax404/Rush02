@@ -6,14 +6,13 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:43:00 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 18:04:06 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 18:13:55 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RUSH02_H
 # define RUSH02_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
