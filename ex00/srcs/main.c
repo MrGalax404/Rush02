@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:40:27 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 17:45:51 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:59:00 by nmathys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,26 @@ int	is_nbr_valid(char *str)
 	return (0);
 }
 
+int	parse_args(int argc, char **argv, char **dict_file, char **nbr)
+{
+	if (argc == 2)
+	{
+		*dict_file = "numbers.dict";
+		*nbr = argv[1];
+	}
+	else if (argc == 3)
+	{
+		*dict_file = argv[1];
+		*nbr = argv[2];
+	}
+	else
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	char	*nbr;
@@ -40,21 +60,8 @@ int	main(int argc, char **argv)
 	int		is_first;
 
 	is_first = 1;
-	if (argc == 2)
-	{
-		dict_file = "numbers.dict";
-		nbr = argv[1];
-	}
-	else if (argc == 3)
-	{
-		dict_file = argv[1];
-		nbr = argv[2];
-	}
-	else
-	{
-		write(1, "Error\n", 6);
+	if (!parse_args(argc, argv, &dict_file, &nbr))
 		return (1);
-	}
 	if (is_nbr_valid(nbr) == 1)
 	{
 		write(1, "Error\n", 6);
