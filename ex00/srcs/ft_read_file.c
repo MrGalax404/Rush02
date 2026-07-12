@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 11:56:58 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/11 14:30:35 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 17:27:36 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*ft_read_file(char *filename)
 	if (bytes == -1)
 	{
 		free(dict);
-		return(0);
+		return (0);
 	}
 	return (dict);
 }

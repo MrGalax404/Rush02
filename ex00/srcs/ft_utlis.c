@@ -6,7 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 15:17:05 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 12:03:18 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:26:15 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_putstr(char *str)
 
 int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str)
 		return (1);
@@ -41,7 +41,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void print_space(int *is_first)
+void	print_space(int *is_first)
 {
 	if (*is_first == 0)
 		ft_putstr(" ");

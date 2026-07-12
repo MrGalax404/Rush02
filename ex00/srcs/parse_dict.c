@@ -6,7 +6,7 @@
 /*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:13:15 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 17:19:22 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 17:21:25 by shkrasni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,30 +75,6 @@ void	trim_ending_spaces(char *str)
 	while (len > 0 && str[len - 1] == ' ')
 		len--;
 	str[len] = '\0';
-}
-
-void	parse_entry(char *str, int *i, t_dict *entry)
-{
-	while (str[*i] && str[*i] != '\n')
-	{
-		if (str[*i] >= 32 && str[*i] <= 126
-			&& str[*i] != ' ' && str[*i] != ':')
-		{
-			if (!entry->key)
-				entry->key = ft_split(&str[*i], 1);
-			else
-			{
-				entry->value = ft_split(&str[*i], 0);
-				trim_ending_spaces(entry->value);
-			}
-			if (entry->value)
-				*i += ft_strlen(entry->value);
-			else
-				*i += ft_strlen(entry->key);
-		}
-		else
-			(*i)++;
-	}
 }
 
 void	parse_entry(char *str, int *i, t_dict *entry)

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush02.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/12 17:43:00 by shkrasni          #+#    #+#             */
+/*   Updated: 2026/07/12 17:43:15 by shkrasni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RUSH02_H
 # define RUSH02_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct s_dict
 {
