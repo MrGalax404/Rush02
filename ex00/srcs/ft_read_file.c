@@ -6,13 +6,49 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 11:56:58 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/11 14:30:35 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 17:53:51 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "rush02.h"
+
+int	ft_init_read(char *filename, char **dict)
+{
+	int	file;
+
+	file = open(filename, O_RDONLY);
+	if (file == -1)
+		return (-1);
+	*dict = malloc(sizeof(char));
+	if (*dict == 0)
+	{
+		close(file);
+		return (-1);
+	}
+	(*dict)[0] = '\0';
+	return (file);
+}
+
+int	ft_read_loop(int file, char **dict)
+{
+	char	buffer[1024];
+	int		bytes;
+	int		total;
+
+	total = 0;
+	bytes = read(file, buffer, 1024);
+	while (bytes > 0)
+	{
+		dict = ft_append_dict(dict, total, buffer, bytes);
+		if (dict == 0)
+			return (0);
+		total += bytes;
+		bytes = read(file, buffer, 1024);
+	}
+	if (bytes == -1)
+		return (0);
+	return (1);
+}
 
 char	*ft_append_dict(char *old, int old_size, char *buffer, int buffer_size)
 {
@@ -45,36 +81,17 @@ char	*ft_append_dict(char *old, int old_size, char *buffer, int buffer_size)
 char	*ft_read_file(char *filename)
 {
 	char	*dict;
-	char	buffer[1024];
 	int		file;
-	int		bytes;
-	int		total;
 
-	file = open(filename, O_RDONLY, buffer);
+	file = ft_init_read(filename, &dict);
 	if (file == -1)
-	{
-		write(1, "Dict Error\n", 11);
 		return (0);
-	}
-	dict = malloc(sizeof(char));
-	if (dict == 0)
-		return (0);
-	dict[0] = '\0';
-	bytes = read(file, buffer, 1024);
-	total = 0;
-	while (bytes > 0)
+	if (!ft_read_loop(file, &dict))
 	{
-		dict = ft_append_dict(dict, total, buffer, bytes);
-		if (dict == 0)
-			return (0);
-		total += bytes;
-		bytes = read(file, buffer, 1024);
+		close(file);
+		free(dict);
+		return (0);
 	}
 	close(file);
-	if (bytes == -1)
-	{
-		free(dict);
-		return(0);
-	}
 	return (dict);
 }
