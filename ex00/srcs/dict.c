@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dict.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:13:07 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/12 17:34:19 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 18:19:14 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,20 @@ char	*find_in_dict(t_dict *tab, char *key)
 		i++;
 	}
 	return (NULL);
+}
+
+int	ft_check_for_max(char *nbr)
+{
+	int len;
+	int group_len;
+	int zeros;
+
+	len = ft_strlen(nbr);
+	group_len = len % 3;
+	if (group_len == 0)
+		group_len = 3;
+	zeros = len - group_len;
+	if (zeros > 36)
+		return (0);
+	return (1);
 }

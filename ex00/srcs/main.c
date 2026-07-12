@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:40:27 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 18:02:20 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/12 18:23:56 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	is_nbr_valid(char *str)
 {
 	int	i;
 
+	if (!ft_check_for_max(str))
+		return (1);
 	i = 0;
 	while (str[i])
 	{
