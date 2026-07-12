@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parse_dict.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:13:15 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 17:21:25 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 18:02:16 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
 #include "rush02.h"
 
-#define DICTIONARY "../numbers.dict"
 
 int	count_lines(char *str)
 {

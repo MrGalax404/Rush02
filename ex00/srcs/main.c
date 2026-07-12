@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmathys <nmathys@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 17:40:27 by shkrasni          #+#    #+#             */
-/*   Updated: 2026/07/12 17:59:00 by nmathys          ###   ########.fr       */
+/*   Updated: 2026/07/12 18:02:20 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
-
-void	parse_left_to_right(t_dict *tab, char *str, int len, int *is_first);
-int		ft_strlen(char *str);
-char	*find_in_dict(t_dict *tab, char *key);
-int		ft_strcmp(char *s1, char *s2);
 
 int	is_nbr_valid(char *str)
 {

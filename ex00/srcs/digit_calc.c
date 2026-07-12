@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   digit_calc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shkrasni <shkrasni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 12:05:41 by nmathys           #+#    #+#             */
-/*   Updated: 2026/07/12 17:33:46 by shkrasni         ###   ########.fr       */
+/*   Updated: 2026/07/12 18:02:53 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush02.h"
-#include <unistd.h>
-
-char	*find_in_dict(t_dict *tab, char *key);
-
-int		ft_strcmp(char *s1, char *s2);
-
-void	print_space(int *is_first);
-
-void	ft_putstr(char *str);
 
 void	print_mag(t_dict *tab, int len_left, int *is_first)
 {
